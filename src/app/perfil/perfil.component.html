@@ -1,0 +1,100 @@
+<div class="container mt-4">
+  <h2>Perfil de Usuario</h2>
+  <form [formGroup]="perfilForm" (ngSubmit)="guardarPerfil()">
+
+    <!-- Nombre -->
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre</label>
+      <input type="text" id="nombre" class="form-control" formControlName="nombre" placeholder="Ingresa tu nombre">
+      <div *ngIf="perfilForm && perfilForm.get('nombre')?.invalid && perfilForm.get('nombre')?.touched" class="text-danger">
+        El nombre es obligatorio.
+      </div>
+    </div>
+
+    <!-- Fecha de Nacimiento -->
+    <div class="mb-3">
+      <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+      <input type="date" id="fechaNacimiento" class="form-control" formControlName="fechaNacimiento">
+      <div *ngIf="perfilForm && perfilForm.get('fechaNacimiento')?.invalid && perfilForm.get('fechaNacimiento')?.touched" class="text-danger">
+        La fecha de nacimiento es obligatoria.
+      </div>
+    </div>
+
+    <!-- Sexo -->
+    <div class="mb-3">
+      <label for="sexo" class="form-label">Sexo</label>
+      <select id="sexo" class="form-select" formControlName="sexo">
+        <option value="">Seleccione una opción</option>
+        <option value="M">Masculino</option>
+        <option value="F">Femenino</option>
+        <option value="S">Sin Información</option>
+      </select>
+      <div *ngIf="perfilForm && perfilForm.get('sexo')?.invalid && perfilForm.get('sexo')?.touched" class="text-danger">
+        Selecciona una opción válida.
+      </div>
+    </div>
+
+    <!-- Altura -->
+    <div class="mb-3">
+      <label for="altura" class="form-label">Altura (cm)</label>
+      <input type="number" id="altura" class="form-control" formControlName="altura" placeholder="Ingresa tu altura">
+      <div *ngIf="perfilForm && perfilForm.get('altura')?.invalid && perfilForm.get('altura')?.touched" class="text-danger">
+        La altura debe ser un valor válido.
+      </div>
+    </div>
+
+    <!-- Pecho -->
+    <div class="mb-3">
+      <label for="pecho" class="form-label">Medida Pecho (cm)</label>
+      <input type="number" id="pecho" class="form-control" formControlName="pecho" placeholder="Ingresa tu medida de pecho">
+      <div *ngIf="perfilForm && perfilForm.get('pecho')?.invalid && perfilForm.get('pecho')?.touched" class="text-danger">
+        La medida de pecho debe ser válida.
+      </div>
+    </div>
+
+    <!-- Cintura -->
+    <div class="mb-3">
+      <label for="cintura" class="form-label">Medida Cintura (cm)</label>
+      <input type="number" id="cintura" class="form-control" formControlName="cintura" placeholder="Ingresa tu medida de cintura">
+      <div *ngIf="perfilForm && perfilForm.get('cintura')?.invalid && perfilForm.get('cintura')?.touched" class="text-danger">
+        La medida de cintura debe ser válida.
+      </div>
+    </div>
+
+    <!-- Cadera -->
+    <div class="mb-3">
+      <label for="cadera" class="form-label">Medida Cadera (cm)</label>
+      <input type="number" id="cadera" class="form-control" formControlName="cadera" placeholder="Ingresa tu medida de cadera">
+      <div *ngIf="perfilForm && perfilForm.get('cadera')?.invalid && perfilForm.get('cadera')?.touched" class="text-danger">
+        La medida de cadera debe ser válida.
+      </div>
+    </div>
+
+    <!-- Estilos Preferidos -->
+    <div class="mb-3">
+      <label for="estilosPreferidos" class="form-label">Estilos Preferidos</label>
+      <select id="estilosPreferidos" class="form-select" formControlName="estilosPreferidos">
+        <option value="">Seleccione una opción</option>
+        <option value="D">Deportivo</option>
+        <option value="F">Formal</option>
+        <option value="U">Urbano</option>
+        <option value="C">Clásico</option>
+        <option value="E">Elegante</option>
+        <option value="R">Rockero</option>
+        <option value="H">Hippie</option>
+      </select>
+    </div>
+
+    <!-- Correo Electrónico -->
+    <div class="mb-3">
+      <label for="email" class="form-label">Correo Electrónico</label>
+      <input type="email" id="email" class="form-control" formControlName="email" placeholder="Ingresa tu correo">
+      <div *ngIf="perfilForm && perfilForm.get('email')?.invalid && perfilForm.get('email')?.touched" class="text-danger">
+        El correo electrónico no es válido.
+      </div>
+    </div>
+
+    <!-- Botón de envío -->
+    <button type="submit" class="btn btn-primary" [disabled]="perfilForm.invalid">Guardar Perfil</button>
+  </form>
+</div>

@@ -1,0 +1,26 @@
+<!-- src/app/chatbot/chatbot.component.html -->
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-header bg-primary text-white">
+      <h4>Chatbot</h4>
+    </div>
+    <div class="card-body chat-container">
+      <div class="conversation">
+        <div *ngFor="let message of conversation" class="mb-3">
+          <div *ngIf="message.sender === 'user'" class="text-end">
+            <div class="badge bg-primary p-2">{{ message.message }}</div>
+          </div>
+          <div *ngIf="message.sender === 'bot'" class="text-start">
+            <div class="badge bg-secondary p-2">{{ message.message }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="input-group">
+        <input type="text" class="form-control" [(ngModel)]="userInput" placeholder="Escribe un mensaje..." />
+        <button class="btn btn-primary" (click)="sendMessage()">Enviar</button>
+      </div>
+    </div>
+  </div>
+</div>
